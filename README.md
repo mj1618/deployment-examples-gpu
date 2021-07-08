@@ -1,5 +1,20 @@
 # Deployment Example with GPUs on AWS ECS (dxgpu)
 
+All deployment-examples are from a blank AWS and Terraform account as no assumptions are made about pre-existing knowledge or infrastructure.
+
+In this example we create an ECS cluster using the `p2.xlarge` instance type which have GPUs attached.
+Unfortunately Fargate does not support GPU enabled instance types so we must create ECS instances manually.
+
+The basic sequence of steps is as follows:
+- Create an AWS and Terraform account and save credentials
+- Create the `deploymentuser` in AWS so we are not using root credentials
+- Setup the VPC
+- Create an ECR repo to push images to
+- Create the reusable ECS infrastrcture like security groups, roles, the cluster itself etc.
+- Deploy an image to the cluster
+- See it running in the logs
+- Create a deployment pipeline in Github Actions
+
 ## Get Deployed
 
 ### Prerequisites
@@ -44,13 +59,20 @@ aws configure --profile deploymentuser
 
 ```sh
 ./bin/tf-vpc-create dev
-./bin/tf-pg-create dev
+
+# Create a database - skipped for this example but can be uncommented if required
+# ./bin/tf-pg-create dev
 ./bin/tf-ecr-create
+
 ./bin/tf-cluster-create dev
-./bin/docker-login dev
-./bin/docker-app-build
-./bin/docker-app-push dev
+
+# Build and push the image - skipped for this example
+# ./bin/docker-login dev
+# ./bin/docker-app-build
+# ./bin/docker-app-push dev
+
 ./bin/tf-app-create dev
+./bin/logs dev
 ```
 
 ### Local Docker Compose
