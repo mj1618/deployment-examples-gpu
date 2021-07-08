@@ -1,5 +1,0 @@
-bin
-infra
-.git
-node-server/node_modules
-node-server/build

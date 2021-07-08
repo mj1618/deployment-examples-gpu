@@ -4,7 +4,6 @@ locals {
   pg_workspace_name = "dxgpu-pg-${terraform.workspace}"
   ecr_workspace_name = "dxgpu-ecr"
   app_name = "app"
-  session_ssm_name = "dxgpu-session-ssm-${terraform.workspace}"
   domain_name = {
     dev = "app.dev.${var.dx_root_domain}"
     prod = "app.${var.dx_root_domain}"
@@ -14,4 +13,5 @@ locals {
     dev = "development"
     prod = "production"
   }[terraform.workspace]
+  app_port = 80
 }
