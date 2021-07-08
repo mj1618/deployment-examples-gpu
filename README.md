@@ -6,6 +6,7 @@ In this example we create an ECS cluster using the `p2.xlarge` instance type whi
 Unfortunately Fargate does not support GPU enabled instance types so we must create ECS instances manually.
 
 For examples on how to incorporate a database into this setup see the example (deployment-examples-fargate)[https://github.com/mj1618/deployment-examples-fargate].
+It is only additive to this example so is easy to incorporate if needed.
 
 ## Get Deployed
 
