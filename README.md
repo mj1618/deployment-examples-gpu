@@ -1,6 +1,6 @@
 # Deployment Example with GPUs on AWS ECS (dxgpu)
 
-All deployment-examples are from a blank AWS and Terraform account as no assumptions are made about pre-existing knowledge or infrastructure.
+The example is designed to be run from a blank AWS and Terraform account as no assumptions are made about pre-existing knowledge or infrastructure.
 
 In this example we create an ECS cluster using the `p2.xlarge` instance type which have GPUs attached.
 Unfortunately Fargate does not support GPU enabled instance types so we must create ECS instances ourselves in terraform.
