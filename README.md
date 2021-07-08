@@ -1,4 +1,4 @@
-# Deployment Example (dx) Pipeline
+# Deployment Example with GPUs on AWS ECS (dxgpu)
 
 ## Get Deployed
 
