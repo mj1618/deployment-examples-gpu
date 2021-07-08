@@ -64,7 +64,7 @@ aws configure --profile deploymentuser
 
 ```sh
 ./bin/tf-vpc-create dev
-./bin/tf-ecr-create
+./bin/tf-ecr-create # the ecr repo is the same used across dev and prod
 ./bin/tf-cluster-create dev
 ./bin/tf-app-create dev
 ./bin/logs dev
