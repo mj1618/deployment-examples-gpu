@@ -20,14 +20,14 @@ The basic sequence of steps is as follows:
 - See it running in the logs
 - Create a deployment pipeline in Github Actions
 
-### Prerequisites
+### 1. Prerequisites
 
 1. Get an AWS account and look up your root credentials. `Login -> Your Name -> My Security Credentials -> Access Keys -> Create New Access Key.`
 2. Register a domain name for your application in AWS and set the TF_VAR_dx_root_domain environment variable to the domain name. `Route53 -> Registered Domains -> Register Domain -> Follow the prompts`
 3. Create a Terraform account.
 4. `brew install jq` - used in the script: `./bin/docker-login`
 
-### Setup Terraform Cloud
+### 2. Setup Terraform Cloud
 
 - Create a terraform account
 - run `terraform login` in your console
@@ -37,7 +37,7 @@ Setup workspaces:
 ./bin/tf-workspaces-create
 ```
 
-### Create and Configure AWS DeploymentUser
+### 3. Create and Configure AWS DeploymentUser
 
 Create a profile from your root credentials (this profile can be deleted after this section):
 ```sh
@@ -58,7 +58,7 @@ aws configure --profile deploymentuser
 # note the profile name "deploymentuser" is used by all further terraform scripts
 ```
 
-### Install Base Infra
+### 4. Create Infrastructure
 
 ```sh
 ./bin/tf-vpc-create dev
@@ -68,7 +68,7 @@ aws configure --profile deploymentuser
 ./bin/logs dev
 ```
 
-### Github Action for Deployment
+### 5. Github Action for Deployment
 
 Go into your Repository -> Settings and add the following variables:
 - `TF_API_TOKEN` - your terrform API token (create a new one using `terraform login` if you need to)
